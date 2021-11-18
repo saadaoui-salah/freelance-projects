@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home 
+{% endblock title %}
+
+{% block content %}
+{% if categories|length > 0%} 
+<div class="mt-10 full-width flex justify-center items-center">
+    <h1 class="border border-blue-400 px-4 py-2 rounded-md">Categories</h1>
+</div>
+{% endif %} 
+<div class="mt-10 mx-4 grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2">
+    {% for cat in categories %}
+    <a href="{% url 'sub_cat' cat.id %}" class="mr-4 mb-12">
+        <div>
+            <div class="mr-2 border border-gray-600">
+                <img class="w-full h-full" src="{{cat.image }}">
+            </div>
+            <h1 >{{ cat.category }}</h1>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
+    
+    

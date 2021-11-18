@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block title %}
+Sub Categories
+{% endblock title %}
+
+{% block content %}
+<div class="full-width mt-4 flex justify-center items-center">
+    <h1 class="border border-blue-400 px-4 py-2 rounded-md">Services</h1>
+</div>
+<div class="mt-10 mx-4 grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2">
+    {% for serice in services %}
+    <a href="{% url 'details' serice.id %}" class="mr-4 mb-12" >
+        <div>
+            <div class="mr-2 border border-gray-600">
+                <img class="w-ful h-full" src="{{serice.image }}">
+            </div>
+            <h1 >{{ serice.name }}</h1>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock content %}

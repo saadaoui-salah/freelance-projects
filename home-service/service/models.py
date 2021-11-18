@@ -6,7 +6,7 @@ User = get_user_model()
 
 class Category(models.Model):
     category = models.CharField(max_length=100)
-    parent_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name="parent_cat")
+    parent_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name="parent_cat", null=True, blank=True)
     image = ImageField()
 
     def __str__(self) :
@@ -14,10 +14,10 @@ class Category(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="cat")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="cat", limit_choices_to={'parent_category__isnull': False})
     image = models.ImageField()
     detail = models.TextField()
-    price  = models.DecimalField(decimal_places=2, max_digits=2)
+    price  = models.IntegerField()
 
     def __str__(self):
         return self.name

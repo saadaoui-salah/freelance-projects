@@ -83,7 +83,7 @@ jupyter-core==4.7.0
 jupyterlab-pygments==0.1.2
 keyboa==3.1.0
 lazy-object-proxy==1.4.3
-lxml==4.6.2
+lxml==4.6.5
 MarkupSafe==2.0.1
 mccabe==0.6.1
 MeaningCloud-python==2.0.0
